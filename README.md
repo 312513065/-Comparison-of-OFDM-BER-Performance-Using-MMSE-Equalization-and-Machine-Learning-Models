@@ -49,12 +49,12 @@ Where:
 | OFDMNet_LSTM        | LSTM: 2 layers, input_size=4, hidden_size=32, outputs flattened and fed to FC layers |
 | OFDMNet_Transformer | Transformer: input 4-dim mapped to 128-dim, 2 encoder layers, 8 heads, FF dim=256 |
 
-Input:
+### Input:
 
 All models take input:
 
 x_input: (batch, 64, 4)  # 4 channels = [ y_real, y_imag, pilot_mask, pilot_real_value ]
 
-Output:
+### Output:
 
 y_output: (batch, 55, 2)  # 2 channels = [ symbol_real, symbol_imag ]
