@@ -16,39 +16,30 @@ This project benchmarks lightweight deep learning models (CNN, LSTM, Transformer
 
 ## 🖐 System Model
 
-We estimate the MIMO channel matrix **H** using pilot signals **x**, with the received signal **y**:
+We estimate the wireless channel **h** using OFDM pilot signals **x**, with the received signal **y**:
 
 \[
-y = H \cdot x + n
+y = h * x + n
 \]
 
 Where:
-
-- `x`: known pilot symbol, shape (N_tx × L)
-- `y`: received signal at RX, shape (N_rx × L)
-- `H`: channel tensor, shape (N_rx × N_tx × L × 2) where last dim is [real, imag]
+- `x`: known OFDM symbol after 64-point IFFT, consisting of 16-QAM modulated data and 9 pilot subcarriers
+- `y`: received signal at the receiver, after passing through the 3-tap multipath channel and additive white Gaussian noise (AWGN)
+- `h`: channel impulse response, shape (3,), a complex-valued 3-tap channel 
 - `n`: additive white Gaussian noise
 
-Each training sample represents a single CSI frame, consisting of `L=8` pilot subcarriers (not time steps), following real-world CSI-RS usage in OFDM.
+### Signal Generation:
+- 16-QAM modulation generates baseband symbols.
+- Symbols are mapped onto 64 OFDM subcarriers, with 9 designated as pilot subcarriers.
+- A 64-point IFFT converts to time domain.
+- A cyclic prefix is added before transmission.
 
----
+### 🧪 Channel Data & Augmentations
+- The signal passes through a 3-tap channel **h** (frequency-selective fading).
+- Additive white Gaussian noise **n** is added at the receiver, with SNR randomly chosen between 5 dB and 25 dB.
+- The received signal **y** is processed by MMSE or machine learning-based equalization (CNN / LSTM / Transformer)
 
-## 🧪 Channel Data & Augmentations
 
-- **Synthetic Rayleigh Channel**
-  - Each element h_{i,j} ~ CN(0, 1)
-  - i.i.d. fading with no TX/RX correlation
-- **DeepMIMO (O1_60)**
-  - Geometry-based ray-tracing CSI from real-world layout
-  - Includes TX/RX correlation and multi-path structure
-
-**Augmentations**
-- Random SNR between 10–30 dB
-- Random Zadoff-Chu pilot root index
-- Optional IQ imbalance
-- Optional 1-bit quantization noise
-
----
 
 ## 🧠 Models Implemented
 
