@@ -53,10 +53,8 @@ Input:
 
 All models take input:
 
-x_input: (batch, 64, 5)  
-4 channels = [ y_real, y_imag, pilot_mask, pilot_real_value , pilot_img_value ]
+x_input: (batch, 64, 4)  # 4 channels = [ y_real, y_imag, pilot_mask, pilot_real_value ]
 
 Output:
 
-y_output: (batch, 55, 2)  
-2 channels = [ symbol_real, symbol_imag ]
+y_output: (batch, 55, 2)  # 2 channels = [ symbol_real, symbol_imag ]
