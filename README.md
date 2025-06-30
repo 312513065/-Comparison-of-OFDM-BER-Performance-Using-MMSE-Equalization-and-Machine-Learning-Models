@@ -51,12 +51,12 @@ Where:
 
 Input:
 
-### All models take input:
+All models take input:
 
 x_input: (batch, 64, 5)  
-# 4 channels = [ y_real, y_imag, pilot_mask, pilot_real_value , pilot_img_value ]
+4 channels = [ y_real, y_imag, pilot_mask, pilot_real_value , pilot_img_value ]
 
 Output:
 
 y_output: (batch, 55, 2)  
-# 2 channels = [ symbol_real, symbol_imag ]
+2 channels = [ symbol_real, symbol_imag ]
