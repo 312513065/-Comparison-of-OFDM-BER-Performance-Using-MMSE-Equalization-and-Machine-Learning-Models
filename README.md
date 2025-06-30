@@ -43,10 +43,10 @@ Where:
 
 ## 🧠 Models Implemented
 
-| Model               | Description                                     |
-|---------------------|-------------------------------------------------|
-| `SimpleCSINet3D`     | 3D CNN over (rx, tx, pilot), ~80K params        |
-| `LSTMCSINet`         | Models pilot as a sequence, uses LSTM layers    |
-| `TransformerCSINet`  | Uses attention across subcarriers               |
+| Model               | Architecture Details                                                            |
+|---------------------|---------------------------------------------------------------------------------|
+| OFDMNet_CNN         | 1D CNN: Conv1d layers (4 → 32 → 128 → 128 channels), kernel=3, ReLU activations |
+| OFDMNet_LSTM        | LSTM: 2 layers, input_size=4, hidden_size=32, outputs flattened and fed to FC layers |
+| OFDMNet_Transformer | Transformer: input 4-dim mapped to 128-dim, 2 encoder layers, 8 heads, FF dim=256 |
 
 Input:
