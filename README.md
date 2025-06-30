@@ -58,6 +58,6 @@ x_input: (batch, 64, 4)  # 4 channels = [ y_real, y_imag, pilot_mask, pilot_real
 ### Output:
 y_output: (batch, 55, 2)  # 2 channels = [ symbol_real, symbol_imag ]
 
-
+<pre> ``` x_input: (batch, 64, 4) # 4 channels = [ y_real, y_imag, pilot_mask, pilot_real_value ] ``` ``` y_output: (batch, 55, 2) # 2 channels = [ symbol_real, symbol_imag ] ``` </pre>
 
 ---
