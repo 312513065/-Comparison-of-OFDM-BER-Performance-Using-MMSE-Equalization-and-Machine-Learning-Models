@@ -1,8 +1,6 @@
 # Comparison-of-OFDM-BER-Performance-Using-MMSE-Equalization-and-Machine-Learning-Models
 
-# 🛱 CSI Channel Estimation with Deep Learning
-
-This project benchmarks lightweight deep learning models (3D CNN, LSTM, Transformer) for CSI (Channel State Information) estimation in MIMO systems. It compares their performance with traditional MMSE under synthetic Rayleigh and DeepMIMO-generated channels.
+This project benchmarks lightweight deep learning models (CNN, LSTM, Transformer) for OFDM system EER (Equal Error Rate) analysis. It compares their performance with traditional MMSE equalization under synthetic Rayleigh channels
 
 ---
 
