@@ -40,7 +40,7 @@ Where:
 - The received signal **y** is processed by MMSE or machine learning-based equalization (CNN / LSTM / Transformer)
 
 
-
+---
 ## 🧠 Models Implemented
 
 | Model               | Architecture Details                                                            |
@@ -58,3 +58,4 @@ x_input: (batch, 64, 4)  # 4 channels = [ y_real, y_imag, pilot_mask, pilot_real
 ### Output:
 
 y_output: (batch, 55, 2)  # 2 channels = [ symbol_real, symbol_imag ]
+---
