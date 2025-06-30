@@ -18,9 +18,9 @@ This project benchmarks lightweight deep learning models (CNN, LSTM, Transformer
 
 We estimate the wireless channel **h** using OFDM pilot signals **x**, with the received signal **y**:
 
-\[
-y = h * x + n
-\]
+$$
+y = h \cdot x + n
+$$
 
 Where:
 - `x`: known OFDM symbol after 64-point IFFT, consisting of 16-QAM modulated data and 9 pilot subcarriers
