@@ -60,22 +60,5 @@ output:
 <pre> y_output: (batch, 55, 2) # 2 channels = [ symbol_real, symbol_imag ]  </pre>
 
 
-.
-├── models/
-│   ├── cnn.py
-│   ├── lstm.py
-│   └── transformer.py
-├── dataset/
-│   └── ofdm_generator.py
-├── utils/
-│   ├── mmse.py
-│   ├── metrics.py
-│   └── plot_utils.py
-├── results/
-│   ├── model_error_rates.png
-│   ├── loss_curves.png
-│   └── attention_heatmaps/
-├── main.py
-├── evaluate.py
-└── README.md
+
 ---
