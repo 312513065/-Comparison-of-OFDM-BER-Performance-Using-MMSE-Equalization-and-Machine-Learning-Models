@@ -41,14 +41,24 @@ Where:
 
 
 ---
+
 ## 🧠 Models Implemented
 
-| Model               | Architecture Details                                                            |
-|---------------------|---------------------------------------------------------------------------------|
-| OFDMNet_CNN         | 1D CNN: Conv1d layers (4 → 32 → 128 → 128 channels), kernel=3, ReLU activations |
-| OFDMNet_LSTM        | LSTM: 2 layers, input_size=4, hidden_size=32, outputs flattened and fed to FC layers |
-| OFDMNet_Transformer | Transformer: input 4-dim mapped to 128-dim, 2 encoder layers, 8 heads, FF dim=256 |
+| Model             | Description                                                                                     | Parameter Count      |
+|------------------|-------------------------------------------------------------------------------------------------|-----------------------|
+| **SimpleCSINet3D**       | 3D CNN that processes input as a volume across (Rx, Tx, pilots). Fast and effective for spatial features. | 🏆 **18,490**          |
+| **LSTMCSINet**           | Treats pilots as sequential input. Captures frequency correlation. Best when channel response has structure across L. | 235,552               |
+| **TransformerCSINet**    | Uses self-attention across pilot subcarriers. Learns global relationships among antennas and subcarriers. | 537,760               |
 
+**Input Format**: Each model receives input of shape `(batch, 4, N_rx, N_tx, L)`,  
+where the 4 channels represent `[x_real, x_imag, y_real, y_imag]`.  
+Real and imaginary parts of pilot and received signals are stacked along the channel dimension.
+
+**Output Format**: The model outputs a predicted channel tensor \( \hat{H} \) of shape `(batch, N_rx, N_tx, L, 2)`,  
+where the last dimension contains the real and imaginary components of the estimated channel matrix.
+
+**Conclusion**: Among all models, the 3D CNN has the lowest parameter count (18K) while achieving the best trade-off between accuracy and latency.  
+This lightweight nature makes it ideal for real-time CSI estimation and hardware deployment, especially under edge-device constraints.
 ### Input:
 
 All models take 
@@ -58,6 +68,8 @@ input:
 
 output:
 <pre> y_output: (batch, 55, 2) # 2 channels = [ symbol_real, symbol_imag ]  </pre>
+
+
 
 
 ## 📊 Results & Visualizations
