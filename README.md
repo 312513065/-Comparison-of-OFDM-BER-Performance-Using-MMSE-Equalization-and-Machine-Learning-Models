@@ -11,7 +11,7 @@ This project benchmarks lightweight deep learning models (CNN, LSTM, Transformer
 - 📌 Uses **Zadoff-Chu** pilot sequences (9 subcarriers) for channel estimation
 - 🤖 Models implemented: **1D CNN**, **2-layer LSTM**, **Transformer**
 - 🧪 Baseline: **MMSE Equalizer**
-- 📈 Metrics: **Symbol Error Rate (SER)** vs **SNR**, loss curves, heatmaps
+- 📈 Metrics: **BIT Error Rate (SER)** vs **SNR**, loss curves, heatmaps
 - ⚙️ Benchmarks **CUDA inference latency** for deployment
 
 ---
