@@ -60,5 +60,33 @@ output:
 <pre> y_output: (batch, 55, 2) # 2 channels = [ symbol_real, symbol_imag ]  </pre>
 
 
+## 📊 Results & Visualizations
 
+Below we present training results on both **Rayleigh** and **DeepMIMO** datasets for each model. We include:
+
+- **Loss Curves**: Training vs. validation MSE loss across epochs. The dotted line indicates MMSE baseline.  
+- **Heatmaps**: Visual comparison of true vs. predicted channel magnitudes for a selected sample.  
+- **Residual Histograms**: Distribution of element-wise difference between predicted and true channels.
+
+| Dataset   | Model       | Loss Curve                                  | MODEL BER vs MMSE BER                                  |                  
+|-----------|-------------|----------------------------------------------|----------------------------------------------|
+| Rayleigh  | CNN         | ![](results/rayleigh_cnn_loss.png)          | ![](results/rayleigh_cnn_heatmap.png)        | 
+| Rayleigh  | LSTM        | ![](results/rayleigh_lstm_loss.png)         | ![](results/rayleigh_lstm_heatmap.png)       | 
+| Rayleigh  | Transformer | ![](results/rayleigh_transformer_loss.png)  | ![](results/rayleigh_transformer_heatmap.png)| 
+
+---
+
+### 📁 Image Naming Convention
+
+Please name your image files as:
+
+- `rayleigh_cnn_loss.png`
+- `rayleigh_cnn_heatmap.png`
+- `rayleigh_cnn_hist.png`
+- `rayleigh_lstm_loss.png`
+- ...
+
+Place all images under the `results/` directory.
+
+---
 ---
