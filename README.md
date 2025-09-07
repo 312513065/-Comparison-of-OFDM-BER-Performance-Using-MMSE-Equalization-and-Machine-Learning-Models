@@ -95,7 +95,7 @@ Below we present training results on both **Rayleigh** and **DeepMIMO** datasets
 |-----------|-------------|----------------------------------------------|----------------------------------------------|
 | Rayleigh  | CNN         | ![](results/rayleigh_cnn_loss.png)          | ![](results/rayleigh_cnn_heatmap.png)        | 
 | Rayleigh  | LSTM        | ![](results/rayleigh_lstm_loss.png)         | ![](results/rayleigh_lstm_heatmap.png)       | 
-| Rayleigh  | Transformer | ![](results/rayleigh_transformer_loss.png)  | ![](results/rayleigh_transformer_heatmap.png)| 
+| Rayleigh  | Transformer | ![](results/rayleigh_transformer_loss.png)  | ![](results/ber_comparison_transfomer.png)   | 
 
 ---
 
