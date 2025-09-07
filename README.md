@@ -20,9 +20,9 @@ This project benchmarks lightweight deep learning models (CNN, LSTM, Transformer
 
 We model the received OFDM signal as:
 
-\[
+$$
 y = h \cdot x + n
-\]
+$$
 
 Where:
 - \( x \): Transmitted OFDM symbol (64-point IFFT, 16-QAM modulated, with 9 pilots)
