@@ -36,7 +36,7 @@ Where:
     - 16-QAM modulation to baseband symbols
 2. **Subcarrier Mapping**:
     - 64 subcarriers total
-    - 9 fixed pilots using Zadoff-Chu sequences
+    - 19 fixed pilots using Zadoff-Chu sequences
 3. **IFFT**:
     - 64-point IFFT converts frequency to time domain
 4. **Cyclic Prefix**:
