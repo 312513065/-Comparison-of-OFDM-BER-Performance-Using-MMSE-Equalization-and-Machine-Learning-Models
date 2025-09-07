@@ -11,7 +11,7 @@ This project benchmarks lightweight deep learning models (CNN, LSTM, Transformer
 - 📌 Uses **Zadoff-Chu** pilot sequences (9 subcarriers) for channel estimation
 - 🤖 Models implemented: **1D CNN**, **2-layer LSTM**, **Transformer**
 - 🧪 Baseline: **MMSE Equalizer**
-- 📈 Metrics: **BIT Error Rate (SER)** vs **SNR**, loss curves, heatmaps
+- 📈 Metrics: **BIT Error Rate (BER)** vs **SNR**, loss curves, heatmaps
 - ⚙️ Benchmarks **CUDA inference latency** for deployment
 
 ---
@@ -78,7 +78,7 @@ input:
 <pre> x_input: (batch, 64, 5) # 4 channels = [ y_real, y_imag, pilot_mask, pilot_real_value  , pilot_img_value ]  </pre> 
 
 output:
-<pre> y_output: (batch, 55, 2) # 2 channels = [ symbol_real, symbol_imag ]  </pre>
+<pre> y_output: (batch, 47, 2) # 2 channels = [ symbol_real, symbol_imag ]  </pre>
 
 
 
@@ -91,25 +91,11 @@ Below we present training results on both **Rayleigh** and **DeepMIMO** datasets
 - **Heatmaps**: Visual comparison of true vs. predicted channel magnitudes for a selected sample.  
 - **Residual Histograms**: Distribution of element-wise difference between predicted and true channels.
 
-| Dataset   | Model       | Loss Curve                                  | MODEL BER vs MMSE BER                                  |                  
-|-----------|-------------|----------------------------------------------|----------------------------------------------|
-| Rayleigh  | CNN         | ![](results/rayleigh_cnn_loss.png)          | ![](results/ber_comparison_cnn.png)        | 
-| Rayleigh  | LSTM        | ![](results/rayleigh_lstm_loss.png)         | ![](results/ber_comparison_lstm.png)       | 
-| Rayleigh  | Transformer | ![](results/rayleigh_transformer_loss.png)  | ![](results/ber_comparison_transfomer.png)   | 
+| Dataset   | Model       | MODEL BER vs MMSE BER                        |                  
+|-----------|-------------|----------------------------------------------|
+| Rayleigh  | CNN               | ![](results/ber_comparison_cnn.png)    | 
+| Rayleigh  | LSTM        |  ![](results/ber_comparison_lstm.png)       | 
+| Rayleigh  | Transformer |![](results/ber_comparison_transfomer.png)   | 
 
----
 
-### 📁 Image Naming Convention
-
-Please name your image files as:
-
-- `rayleigh_cnn_loss.png`
-- `rayleigh_cnn_heatmap.png`
-- `rayleigh_cnn_hist.png`
-- `rayleigh_lstm_loss.png`
-- ...
-
-Place all images under the `results/` directory.
-
----
 ---
