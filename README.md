@@ -55,9 +55,9 @@ Where:
 
 | Model             | Description                                                                                     | Parameter Count      |
 |------------------|-------------------------------------------------------------------------------------------------|-----------------------|
-| **SimpleCSINet3D**       | 3D CNN that processes input as a volume across (Rx, Tx, pilots). Fast and effective for spatial features. | 🏆 **18,490**          |
-| **LSTMCSINet**           | Treats pilots as sequential input. Captures frequency correlation. Best when channel response has structure across L. | 235,552               |
-| **TransformerCSINet**    | Uses self-attention across pilot subcarriers. Learns global relationships among antennas and subcarriers. | 537,760               |
+| **CNNet3D**       | 3D CNN that processes input as a volume across (Rx, Tx, pilots). Fast and effective for spatial features. | 2164958     |
+| **LSTMNet**           | Treats pilots as sequential input. Captures frequency correlation. Best when channel response has structure across L. | 1170750             |
+| **Transformer**    | Uses self-attention across pilot subcarriers. Learns global relationships among antennas and subcarriers. | 4617694             |
 
 **Input Format**: Each model receives input of shape `(batch, 4, N_rx, N_tx, L)`,  
 where the 4 channels represent `[x_real, x_imag, y_real, y_imag]`.  
