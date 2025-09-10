@@ -2,16 +2,28 @@ import numpy as np
 from scipy.interpolate import interp1d
 from config import K, CP, pilotValue, P, mu
 
+def generate_zc_sequence(u, N_ZC):
+    """
+    u: root index (must be relatively prime to N_ZC)
+    N_ZC: length of Zadoff-Chu sequence
+    """
+    n = np.arange(N_ZC)
+    zc_seq = np.exp(-1j * np.pi * u * n * (n + 1) / N_ZC)
+    return zc_seq
 # Subcarriers
 allCarriers = np.arange(K)
 pilotCarriers = np.hstack([allCarriers[::K // P], np.array([K - 1])])
+print(len(pilotCarriers))
 P = len(pilotCarriers)
 dataCarriers = np.delete(allCarriers, pilotCarriers)
 payloadBitsPerOFDM = len(dataCarriers) * mu
+zc_pilot = generate_zc_sequence(u=1, N_ZC=len(pilotCarriers))
+print("zc_pilot" , zc_pilot)
+
 
 def ofdm_modulate(symbols):
     carriers = np.zeros(K, dtype=complex)
-    carriers[pilotCarriers] = pilotValue
+    carriers[pilotCarriers] = zc_pilot 
     carriers[dataCarriers] = symbols
     time_signal = np.fft.ifft(carriers)
     return np.hstack([time_signal[-CP:], time_signal])
